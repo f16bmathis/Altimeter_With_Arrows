@@ -1,5 +1,7 @@
 /* Removed Baro Knob and added UP and DN arrows. Simpler to adjust
- * the baro while flying.
+ * the baro while flying. The touch points for the arrows are set as
+ * large squares around the arrows, to make it easier to touch. Also
+ * on line 19 & 20 are changeable for either one of the touch screens by elegoo or Hiletgo.
  * Copyright January 20, 2020.  Ken Burrell.
  * Edited by Brian Mathis 21 Dec 2021
  */
@@ -14,7 +16,8 @@ MCUFRIEND_kbv tft;
 #define MINPRESSURE 200
 #define MAXPRESSURE 1000
 const int XP=8,XM=A2,YP=A3,YM=9; //240x320 ID=0x9341
-const int TS_LEFT=116,TS_RT=912,TS_TOP=85,TS_BOT=903;
+//const int TS_LEFT=116,TS_RT=912,TS_TOP=85,TS_BOT=903;        // For HiLetgo 2.4" TFT screen
+const int TS_LEFT=912,TS_RT=116,TS_TOP=85,TS_BOT=903;          // For Elegoo TFT Screen
 TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
 
 Adafruit_GFX_Button enter_btn;
@@ -322,13 +325,13 @@ void loop(void)
 
                                   // This touch screen is (X) 320 by (Y) 240
                                                           
-     bool UP = ( (pixel_x >= 160 && pixel_x <= 240) &&    // Approx where X for UP arrow is
+     bool UP = ( (pixel_x >= 140 && pixel_x <= 240) &&    // Approx where X for UP arrow is, between 160 & 240
 
-                (  pixel_y >= 220 && pixel_y <= 280) );   // Approx where Y for UP arrow is
+                (  pixel_y >= 220 && pixel_y <= 310) );   // Approx where Y for UP arrow is, between 220 & 280
 
-     bool DN = ( (pixel_x >= 5 && pixel_x <= 80) &&       // Approx where X for DN arrow is
+     bool DN = ( (pixel_x >= 5 && pixel_x <= 100) &&       // Approx where X for DN arrow is
 
-                (  pixel_y >= 220 && pixel_y <= 280) );   // Approx where Y for DN arrow is
+                (  pixel_y >= 200 && pixel_y <= 310) );   // Approx where Y for DN arrow is
 
      delay(100);
 
