@@ -353,15 +353,3 @@ if ( down  && DN )                                // if DN arrow position...
           digitalWrite(XM, HIGH);
 
        }
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
